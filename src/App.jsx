@@ -2,7 +2,12 @@ import { useState } from "react";
 
 function App() {
   // LISTA DEGLI ARTICOLI
-  const [articles, setArticles] = useState(["Manga"]);
+  const [articles, setArticles] = useState([
+    "Manga",
+    "Action Figure",
+    "ArtBook",
+    "Giocattoli per Gatto",
+  ]);
   // AGGIUNGO UN NUOVO ARTICOLO
   const [newArticles, setNewArticles] = useState("");
   console.log(articles);
@@ -27,9 +32,11 @@ function App() {
 
   return (
     <>
-      <div className="p-2 text-white min-vh-100">
+      <div className="bg-pastel-pink p-2 text-white min-vh-100">
         <div className="container py-4 max-w-md mx-auto">
-          <h1 className="text-center mb-4 text-primary">Lista di Articoli </h1>
+          <h1 className="text-center mb-4 text-pastel-green">
+            Lista di Articoli{" "}
+          </h1>
           <ul className="list-group mb-4">
             {/* PER OGNI ARTICOLO CHE AGGIUNGO O E' GIA' PRESENTE, LO INSERISCO IN UNA LISTA*/}
             {articles.map((article, index) => (
@@ -42,7 +49,8 @@ function App() {
                   className="btn btn-outline-danger btn-sm"
                   onClick={() => deleteArticles(index)}
                 >
-                  Elimina questo articolo
+                  <i className="fa-solid fa-heart-crack"></i> Elimina questo
+                  articolo
                 </button>
               </li>
             ))}
@@ -56,7 +64,9 @@ function App() {
               //PRENDIAMO IL VALORE E LO INSERIAMO
               onChange={(event) => setNewArticles(event.target.value)}
             />
-            <button className="btn btn-primary">Aggiungi Articolo</button>
+            <button className="btn btn-sm btn-pastel-green">
+              <i className="fa-solid fa-heart"></i> Aggiungi Articolo
+            </button>
           </form>
         </div>
       </div>
