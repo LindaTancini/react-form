@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 function App() {
-  return <></>;
+  // LISTA DEGLI ARTICOLI
+  const [articles, setArticles] = useState("Manga");
+  console.log(articles);
 }
 
 export default App;
