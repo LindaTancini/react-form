@@ -1,0 +1,17 @@
+.bg-pastel-pink {
+  background-color: #f8d7da;
+}
+.btn-pastel-green {
+  background-color: #b8e5b6;
+  border-color: #b8e5b6;
+  color: #2c3e50;
+}
+.btn-pastel-green:hover {
+  background-color: #a3d9a1;
+  border-color: #a3d9a1;
+  color: #2c3e50;
+}
+.text-pastel-green {
+  color: #a1d8a4;
+  font-weight: bold;
+}
