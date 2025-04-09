@@ -17,6 +17,13 @@ function App() {
     //UNA VOLTA CHE AGGIUNGO UN ARTICOLO, SVUOTO L'INPUT
     setNewArticles("");
   };
+  //CREO FUNZIONE PER ELIMINARE UN ARTICOLO
+  function deleteArticles(indexDelete) {
+    const newArrayArticles = articles.filter(
+      (article, index) => indexDelete !== index
+    );
+    setArticles(newArrayArticles);
+  }
 
   return (
     <>
@@ -25,7 +32,12 @@ function App() {
         <ul>
           {/* PER OGNI ARTICOLO CHE AGGIUNGO O E' GIA' PRESENTE, LO INSERISCO IN UNA LISTA*/}
           {articles.map((article, index) => (
-            <li key={index}>{article}</li>
+            <li key={index}>
+              <h4>{article}</h4>
+              <button onClick={() => deleteArticles(index)}>
+                Elimina questo articolo
+              </button>
+            </li>
           ))}
         </ul>
         {/*CONTROLLO L'EVENTO DI INVIO DEL FORM*/}
