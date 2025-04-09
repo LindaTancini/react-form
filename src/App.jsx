@@ -10,9 +10,12 @@ function App() {
   // AGGIUNGO PREVENT DEFAULT PER NON FAR RICARICARE LA PAGINA
   const addNewArticles = (event) => {
     event.preventDefault();
-    //CON PUSH AGGIUNGO I NUOVI ARTICOLI
-    articles.push(newArticles);
-    console.log(newArticles);
+    // CON METODO SPREAD CLONO IL MIO ARRAY
+    const updateArticle = [...articles, newArticles];
+    //CON SET AGGIUNGIAMO IL VALORE AGGIUNTO IN PAGINA
+    setArticles(updateArticle);
+    //UNA VOLTA CHE AGGIUNGO UN ARTICOLO, SVUOTO L'INPUT
+    setNewArticles("");
   };
 
   return (
@@ -20,7 +23,10 @@ function App() {
       <div>
         <h1>Lista di Articoli </h1>
         <ul>
-          <li>{articles}</li>
+          {/* PER OGNI ARTICOLO CHE AGGIUNGO O E' GIA' PRESENTE, LO INSERISCO IN UNA LISTA*/}
+          {articles.map((article, index) => (
+            <li key={index}>{article}</li>
+          ))}
         </ul>
         {/*CONTROLLO L'EVENTO DI INVIO DEL FORM*/}
         <form onSubmit={addNewArticles}>
