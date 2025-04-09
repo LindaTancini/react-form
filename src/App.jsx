@@ -27,29 +27,38 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>Lista di Articoli </h1>
-        <ul>
-          {/* PER OGNI ARTICOLO CHE AGGIUNGO O E' GIA' PRESENTE, LO INSERISCO IN UNA LISTA*/}
-          {articles.map((article, index) => (
-            <li key={index}>
-              <h4>{article}</h4>
-              <button onClick={() => deleteArticles(index)}>
-                Elimina questo articolo
-              </button>
-            </li>
-          ))}
-        </ul>
-        {/*CONTROLLO L'EVENTO DI INVIO DEL FORM*/}
-        <form onSubmit={addNewArticles}>
-          <input
-            type="text"
-            value={newArticles}
-            //PRENDIAMO IL VALORE E LO INSERIAMO
-            onChange={(event) => setNewArticles(event.target.value)}
-          />
-          <button>Aggiungi Articolo</button>
-        </form>
+      <div className="p-2 text-white min-vh-100">
+        <div className="container py-4 max-w-md mx-auto">
+          <h1 className="text-center mb-4 text-primary">Lista di Articoli </h1>
+          <ul className="list-group mb-4">
+            {/* PER OGNI ARTICOLO CHE AGGIUNGO O E' GIA' PRESENTE, LO INSERISCO IN UNA LISTA*/}
+            {articles.map((article, index) => (
+              <li
+                className="list-group-item d-flex justify-content-between align-items-center"
+                key={index}
+              >
+                <h4>{article}</h4>
+                <button
+                  className="btn btn-outline-danger btn-sm"
+                  onClick={() => deleteArticles(index)}
+                >
+                  Elimina questo articolo
+                </button>
+              </li>
+            ))}
+          </ul>
+          {/*CONTROLLO L'EVENTO DI INVIO DEL FORM*/}
+          <form className="d-flex gap-2" onSubmit={addNewArticles}>
+            <input
+              className="form-control"
+              type="text"
+              value={newArticles}
+              //PRENDIAMO IL VALORE E LO INSERIAMO
+              onChange={(event) => setNewArticles(event.target.value)}
+            />
+            <button className="btn btn-primary">Aggiungi Articolo</button>
+          </form>
+        </div>
       </div>
     </>
   );
